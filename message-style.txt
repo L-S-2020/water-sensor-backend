@@ -1,0 +1,6 @@
+{
+"temperature": "25",
+"speed": "5",
+"ph": "7",
+"turbidity": "0.5",
+}
