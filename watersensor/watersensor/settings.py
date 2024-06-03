@@ -36,6 +36,7 @@ MQTT_PASSWORD = ''
 # Application definition
 
 INSTALLED_APPS = [
+    'frontpage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

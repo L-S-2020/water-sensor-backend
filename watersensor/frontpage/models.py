@@ -8,5 +8,3 @@ class Data(models.Model):
     turbidity = models.FloatField()
     time = models.TimeField(auto_now_add=True)
     date = models.DateField(auto_now_add=True)
-
-

@@ -1,5 +1,7 @@
 import paho.mqtt.client as mqtt
 from django.conf import settings
+import json
+
 
 def on_connect(mqtt_client, userdata, flags, rc):
    if rc == 0:
@@ -9,7 +11,11 @@ def on_connect(mqtt_client, userdata, flags, rc):
        print('Bad connection. Code:', rc)
 
 def on_message(mqtt_client, userdata, msg):
-   print('Topic:', msg.topic + '\nMessage: ' + str(msg.payload))
+    from .models import Data
+    print(msg.payload)
+    data =  json.loads(msg.payload)
+    Data.objects.create(temperature=data['temperature'], speed=data['speed'], ph=data['ph'], turbidity=data['turbidity'])
+    print(data)
 
 client = mqtt.Client()
 client.on_connect = on_connect
